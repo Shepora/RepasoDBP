@@ -80,7 +80,4 @@ fun main() {
             else -> println("Seleccione una opcion valida.")
         }
     }
-
-x
-
 }
