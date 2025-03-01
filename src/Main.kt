@@ -1,5 +1,3 @@
-import kotlin.math.E
-
 
 fun main() {
     var Monedas20 = 0
