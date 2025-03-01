@@ -1,54 +1,15 @@
+import kotlin.math.E
 
-class Alcancia {
+
+fun main() {
     var Monedas20 = 0
     var Monedas50 = 0
     var Monedas100 = 0
     var Monedas200 = 0
     var Monedas500 = 0
+    var TotalDinero = 0
 
-    fun AgregarMonedas(DenominacionMonedas: Int){
-        when (DenominacionMonedas){
-            20 -> Monedas20++
-            50 -> Monedas50++
-            100 -> Monedas100++
-            200 -> Monedas200++
-            500 -> Monedas500++
-            else -> println("Ingresa tu mondedas de $20, $50, $100, $200, $500. ")
-        }
-    }
-
-    fun CantidadMonedas (){
-        println("Espere un momento, Usted tiene las siguientes monedas: ")
-        println("Monedas de $20: $Monedas20")
-        println("Monedas de $50: $Monedas50")
-        println("Monedas de $100: $Monedas100")
-        println("Monedas de $200: $Monedas200")
-        println("Monedas de $500: $Monedas500")
-    }
-    fun ValorTotal (){
-        var total = 0
-        repeat(Monedas20){ total += 20 }
-        repeat(Monedas50){ total += 50 }
-        repeat(Monedas100){ total += 100 }
-        repeat(Monedas200){ total += 200 }
-        repeat(Monedas500){ total += 500 }
-
-        println("Perfecto su total ahorrado es: $ $total")
-    }
-    fun RomperAlcancia(){
-        println("Estamos rompiendo su alcancia por favor espere...")
-
-        Monedas20 = 0
-        Monedas50 = 0
-        Monedas100 = 0
-        Monedas200 = 0
-        Monedas500 = 0
-        println("Su alcancia se a vaciado con satisfaccion.")
-    }
-}
-
-fun main() {
-    val alcancia = Alcancia()
+    var Eleccion: Int
 
     while (true){
         println("Bienvenido a su alcancia.")
@@ -59,28 +20,57 @@ fun main() {
         println("5. Salir de su alcancia.")
         print("que le gustaria hacer hoy: ")
 
-        val opcion = readln().toIntOrNull()
+        Eleccion = readln().toInt()
 
-        when (opcion){
-            1 -> {
-                print("Ingrese la denominacion de su moneda ($20, $50, $100, $200, $500):" )
+        if (Eleccion == 1){
 
-                val valor = readln().toIntOrNull()
-                if (valor != null)
-                    alcancia.AgregarMonedas(valor)
-                else println("Opcion Erronea.")
+                print("Ingrese la denominacion de su moneda ($20, $50, $100, $200, $500):")
+                val denominacion = readln().toInt()
+
+                if (denominacion == 20) {
+                    Monedas20++
+                    TotalDinero += 20
+                } else if (denominacion == 50) {
+                    Monedas50++
+                    TotalDinero += 50
+                } else if (denominacion == 100) {
+                    Monedas100++
+                    TotalDinero += 100
+                } else if (denominacion == 200) {
+                    Monedas200++
+                    TotalDinero += 200
+                } else if (denominacion == 500) {
+                    Monedas500++
+                    TotalDinero += 500
+                } else {
+                    println("La moneda ingresada no es valida.")
+                }
             }
-            2 -> alcancia.CantidadMonedas()
-            3 -> alcancia.ValorTotal()
-            4 -> alcancia.RomperAlcancia()
-            5 -> {
+            else if (Eleccion ==2){
+                println("En su alcancia tiene: ")
+            println("Monedas de $20: $Monedas20")
+            println("Monedas de $50: $Monedas50")
+            println("Monedas de $100: $Monedas100")
+            println("Monedas de $200: $Monedas200")
+            println("Monedas de $500: $Monedas500")
+            }
+            else if (Eleccion== 3) {
+            println("Su dinero ahorrado es: $TotalDinero")
+            }
+            else if (Eleccion ==4) {
+            println("Estamos rompiendo su alcancia... Su retiro ha sido: $$TotalDinero")
+            Monedas20 =0
+            Monedas50 =0
+            Monedas100 =0
+            Monedas200 =0
+            Monedas500 =0
+            }
+            else if (Eleccion ==5){
                 println("Gracias por confiar tu dinero en nosotros, vuelva pronto.")
                 break
             }
-            else -> println("Seleccione una opcion valida.")
+            else {
+                println("Seleccione una opcion valida.")
         }
     }
-
-x
-
 }
