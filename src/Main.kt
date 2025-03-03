@@ -20,7 +20,7 @@ fun main (){
         println("5) Mostrar el porcentaje de los votos")
         println("6) Finalizar")
         println("Por favor, seleccione una opcion")
-
+/* El .toIntOrNull()?:0 convierte la entrada en numero o un int y si la entrada que recibe es invalida, se asigna 0 con ?: 0*/
         menu = readln().toIntOrNull()?:0
 
         if (menu == 1){
